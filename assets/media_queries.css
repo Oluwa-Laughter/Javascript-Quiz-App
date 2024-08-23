@@ -1,0 +1,15 @@
+@media (max-width: 32em) {
+  html {
+    font-size: 50%;
+  }
+  .start_quiz,
+  .info-box,
+  .quiz-box,
+  .result_box {
+    width: 40rem;
+  }
+
+  .quiz-box header h2 {
+    font-size: 2.4rem;
+  }
+}
