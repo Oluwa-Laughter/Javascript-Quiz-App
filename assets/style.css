@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  background-color: #1e212b;
+}
+
+.start-btn,
+.info-box,
+.quiz-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in;
+}
+
+.start-btn button {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e212b;
+  background-color: #fff;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  padding: 1.6rem 3.2rem;
+}
+
+.start-btn button:hover {
+  background-color: #1e212b;
+  color: #fff;
+}
+
+.info-box {
+  width: 50rem;
+  background-color: #fff;
+  border-radius: 9px;
+  display: none;
+}
+
+.info-box .info-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #787a80;
+  padding: 0 3.4rem;
+  height: 6rem;
+  font-weight: 700;
+  font-size: 3.2rem;
+}
+
+.info-box .info-list {
+  padding: 1.6rem 3.2rem;
+}
+
+.info {
+  margin: 1.2rem 0;
+  font-size: 1.8rem;
+  color: #4b4d55;
+  width: 100%;
+}
+
+.info span {
+  font-weight: 700;
+  color: #1e212b;
+}
+
+.info-box .buttons {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 3.6rem;
+  border-top: 1px solid #787a80;
+}
+
+.info-box .buttons button {
+  margin: 0 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transform: translateX(0);
+  transition: all 0.3s ease-in;
+}
+
+button.continue-quiz {
+  background-color: #353740;
+  color: #fff;
+}
+
+button.continue-quiz:hover {
+  background-color: #1e212b;
+}
+
+button.exit-quiz:hover {
+  background-color: #1e212b;
+  color: #fff;
+}
+
+.quiz-box {
+  width: 60rem;
+  background-color: #fff;
+  border-radius: 9px;
+}

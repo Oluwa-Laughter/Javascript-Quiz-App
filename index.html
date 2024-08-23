@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Quiz App</title>
+    <link rel="stylesheet" href="assets/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="start-btn"><button>Start Quiz</button></div>
+
+    <div class="info-box">
+      <div class="info-title"><span>Rules of the Quiz</span></div>
+
+      <div class="info-list">
+        <p class="info">
+          1. You have <span>20 seconds</span> for each question
+        </p>
+        <p class="info">2. You can only choose one answer</p>
+        <p class="info">3. You can't exit the quiz while you're Playing</p>
+        <p class="info">4. Once time is up you can't chosse answer</p>
+        <p class="info">5. You get points on basis of your correct answers</p>
+      </div>
+      <div class="buttons">
+        <button class="exit-quiz">Exit</button>
+        <button class="continue-quiz">Continue</button>
+      </div>
+    </div>
+
+    <header class="quiz-box">
+      <header>
+        <div class="title">Javascript Quiz Application</div>
+        <div class="timer">
+          <div class="timer_text">Time left</div>
+          <div class="timer_sec">20</div>
+        </div>
+      </header>
+
+      <section>
+        <div class="question">
+          <span>What is Javascript?</span>
+        </div>
+        <div class="option_list">
+          <div class="option">
+            <span>An application</span>
+          </div>
+          <div class="option">
+            <span
+              >An International language<ion-icon
+                name="close-circle-outline"
+              ></ion-icon
+            ></span>
+          </div>
+          <div class="option">
+            <span
+              >A programming language<ion-icon
+                class="icon correct"
+                name="checkmark-done-circle-outline"
+              ></ion-icon>
+            </span>
+          </div>
+          <div class="option">
+            <span>A Novel</span>
+          </div>
+        </div>
+      </section>
+
+
+      <footer>
+        <div class="total_question">
+          <span><p>1</p> of <p>50</p>Questions</span>
+        </div>
+        <button class="next_btn">Next</button>
+      </footer>
+    </div>
+  </body>
+</html>
