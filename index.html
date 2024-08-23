@@ -23,8 +23,13 @@
     ></script>
   </head>
   <body>
-    <div class="start-btn"><button>Start Quiz</button></div>
+    <!-- Welcome Page -->
+    <div class="start_quiz">
+      <h1>Welcome to the <span>Javascript Quiz!</span></h1>
+      <button>Start Quiz</button>
+    </div>
 
+    <!-- Instructions Page -->
     <div class="info-box">
       <div class="info-title"><span>Rules of the Quiz</span></div>
 
@@ -43,11 +48,12 @@
       </div>
     </div>
 
-    <header class="quiz-box">
+    <!-- Quiz page -->
+    <div class="quiz-box">
       <header>
-        <div class="title">Javascript Quiz Application</div>
+        <h2 class="title">Javascript Quiz</h2>
         <div class="timer">
-          <div class="timer_text">Time left</div>
+          <div class="timer_text">Timer:</div>
           <div class="timer_sec">20</div>
         </div>
       </header>
@@ -60,34 +66,39 @@
           <div class="option">
             <span>An application</span>
           </div>
+
           <div class="option">
-            <span
-              >An International language<ion-icon
-                name="close-circle-outline"
-              ></ion-icon
-            ></span>
+            <span>An international language</span>
+            <ion-icon class="icon wrong" name="close-circle-outline"></ion-icon>
           </div>
+
           <div class="option">
-            <span
-              >A programming language<ion-icon
-                class="icon correct"
-                name="checkmark-done-circle-outline"
-              ></ion-icon>
-            </span>
+            <span>A programming language</span>
+            <ion-icon
+              class="icon correct"
+              name="checkmark-done-circle-outline"
+            ></ion-icon>
           </div>
+
           <div class="option">
             <span>A Novel</span>
           </div>
         </div>
       </section>
 
-
       <footer>
         <div class="total_question">
-          <span><p>1</p> of <p>50</p>Questions</span>
+          <span
+            ><p>1</p>
+            <p>of</p>
+            <p>50</p>
+            Questions</span
+          >
         </div>
         <button class="next_btn">Next</button>
       </footer>
     </div>
+    <!-- Results page -->
+    <div></div>
   </body>
 </html>
