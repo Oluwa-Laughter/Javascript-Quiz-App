@@ -9,6 +9,9 @@
     width: 40rem;
   }
 
+  .start_quiz {
+    gap: 2.4rem;
+  }
   .quiz-box header h2 {
     font-size: 2.4rem;
   }
