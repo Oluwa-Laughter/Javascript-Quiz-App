@@ -232,6 +232,10 @@ section .option_list {
   color: #e20909;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .quiz-box footer {
   height: 6rem;
   width: 100%;

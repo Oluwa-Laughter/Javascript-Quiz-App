@@ -1,4 +1,7 @@
 "use strict";
+
+import { showQuestion, questionCounter } from "./questions.js";
+
 const startBtn = document.querySelector(".start_quiz button");
 const infoBox = document.querySelector(".info-box");
 const exitBtn = document.querySelector(".exit-quiz");
@@ -16,4 +19,6 @@ exitBtn.addEventListener("click", function () {
 continueBtn.addEventListener("click", function () {
   quizBox.classList.add("active");
   infoBox.classList.remove("active");
+  showQuestion();
+  questionCounter();
 });
