@@ -8,11 +8,9 @@ This is a simple and Interactive quiz app.
 
 - The user score will be displayed at the end of the quiz based on the number of correct answers.
 
-- The Web app also has a timer that counts down from 20 seconds for each question.
+- The Web app also has a timer that counts down from 10 seconds for each question.
 
 - If time is up users won't be able to choose an answer.
-
-##Screenshots
 
 ### Screenshot
 
@@ -35,6 +33,6 @@ This is a simple and Interactive quiz app.
 
 - Website - [Isaac Makinde](https://github.com/Oluwa-Laughter)
 
-- Twitter - [@isaacmakinde\_](https://www.twitter.com/isaacmakinde_)
+- Twitter - [LAUGHTER](https://www.twitter.com/isaacmakinde_)
 
 - Linkedin - [Isaac Makinde](https://www.linkedin.com/in/isaacmakinde/)
