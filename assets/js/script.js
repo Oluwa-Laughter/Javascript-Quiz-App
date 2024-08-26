@@ -7,6 +7,7 @@ import {
   countTimeLine,
   countDown,
   questionCounter,
+  questionIndex,
 } from "./questions.js";
 
 const startBtn = document.querySelector(".start_quiz button");
@@ -26,7 +27,7 @@ exitBtn.addEventListener("click", function () {
 continueBtn.addEventListener("click", function () {
   quizBox.classList.add("active");
   infoBox.classList.remove("active");
-  showQuestion();
+  showQuestion(questionIndex);
   questionCounter();
   countDown(timeLeft);
   countTimeLine(widthValue);

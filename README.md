@@ -10,7 +10,7 @@ This is a simple and Interactive quiz app.
 
 - The Web app also has a timer that counts down from 20 seconds for each question.
 
-- If the user answers all the questions before the timer runs out, the timer stops.
+- If time is up users won't be able to choose an answer.
 
 ##Screenshots
 
@@ -22,8 +22,8 @@ This is a simple and Interactive quiz app.
 
 ## Development
 
-- Repository : [Solution](https://github.com/)
-- Web App Url: [Live site]()
+- Repository : [Solution](https://github.com/Oluwa-Laughter/Javascript-Quiz-App)
+- Web App Url: [Live site](https://isaac-javascript-quiz-app.netlify.app/)
 
 ## Built Using
 
