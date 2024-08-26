@@ -369,26 +369,95 @@ const questionsArr = [
   // },
 ];
 
+const nextBtn = document.querySelector(".next_btn");
+const restartQuiz = document.querySelector(".restart-quiz");
+const quitQuiz = document.querySelector(".quit-quiz");
+
+const timeLine = document.querySelector(".time-line");
+const timerPerSec = document.querySelector(".timer_sec");
+
+let counter;
+let counterLine;
+let userScore = 0;
+
+export const timeLeft = 10;
+export const widthValue = 55;
+
+export const countDown = function (time) {
+  const timer = () => {
+    const formattedTime = time < 10 ? `0${time}` : time;
+    timerPerSec.textContent = formattedTime;
+    time--;
+
+    if (time < 1) {
+      clearInterval(counter);
+      timerPerSec.textContent = "00";
+      const options = document.querySelectorAll(".option");
+      for (let i = 0; i < options.length; i++) {
+        options[i].classList.add("disabled");
+      }
+    }
+  };
+
+  counter = setInterval(timer, 1000);
+};
+
+export const countTimeLine = function (count) {
+  const timer = () => {
+    if (count > 0) {
+      timeLine.style.width = `${count}rem`;
+      count -= 0.55;
+    } else {
+      timeLine.style.width = "0rem";
+      clearInterval(counterLine);
+    }
+  };
+
+  counterLine = setInterval(timer, 100);
+};
+
 let questionIndex = 0;
 
-const options = document.querySelectorAll(".option");
-console.log(options);
+const wrongIcon = `<ion-icon class="icon wrong" name="close-circle-outline"></ion-icon>`;
+
+const correctIcon = `<ion-icon class="icon correct" name="checkmark-done-circle-outline"></ion-icon>`;
 
 const optionSelected = function (e) {
+  clearInterval(counter);
+  clearInterval(counterLine);
+  const options = document.querySelectorAll(".option");
+  let allOptions = options.length;
   const selected = e.target;
-  console.log(selected);
-  const userAnswer = selected.textContent;
-  console.log(userAnswer);
-  userAnswer.trim();
-  const correctAnswer = questionsArr[questionIndex].correctAnswer;
-  correctAnswer.trim();
-  console.log(userAnswer === correctAnswer);
+  let userAnswer = selected.textContent;
+  let correctAnswer = questionsArr[questionIndex].correctAnswer;
+  const answer = userAnswer.trim();
 
-  userAnswer === correctAnswer
-    ? selected.classList.add("correct")
-    : selected.classList.add("wrong");
+  // answer === correctAnswer
+  //   ? selected.classList.add("correct")
+  //   : selected.classList.add("wrong");
 
-  options.forEach((d) => d.classList.add("disabled"));
+  if (answer === correctAnswer) {
+    selected.classList.add("correct");
+    selected.insertAdjacentHTML("beforeend", correctIcon);
+    userScore++;
+    console.log(userScore);
+  } else {
+    selected.classList.add("wrong");
+    selected.insertAdjacentHTML("beforeend", wrongIcon);
+    for (let i = 0; i < allOptions; i++) {
+      let uniqueAnswer = options[i].querySelector("span").textContent;
+      console.log(uniqueAnswer);
+      if (uniqueAnswer === correctAnswer) {
+        options[i].setAttribute("class", "option correct");
+        options[i].insertAdjacentHTML("beforeend", correctIcon);
+      }
+    }
+  }
+
+  for (let i = 0; i < allOptions; i++) {
+    options[i].classList.add("disabled");
+  }
+  nextBtn.style.display = "block";
 };
 
 export const showQuestion = function () {
@@ -414,12 +483,13 @@ export const showQuestion = function () {
     </div>
   `;
 
+  const options = document.querySelectorAll(".option");
+  console.log(options);
+
   options.forEach((option) => {
     option.addEventListener("click", optionSelected);
   });
 };
-
-const nextBtn = document.querySelector(".next_btn");
 
 export const questionCounter = function (i) {
   const questionCount = document.querySelector(".total_question");
@@ -428,117 +498,34 @@ export const questionCounter = function (i) {
   } questions</span>`;
 };
 
+const quizBox = document.querySelector(".quiz-box");
+const resultBox = document.querySelector(".result_box");
+const infoBox = document.querySelector(".info-box");
+
+const showResultBox = function () {
+  infoBox.classList.remove("active");
+  quizBox.classList.remove("active");
+  resultBox.classList.add("active");
+
+  const scored = resultBox.querySelector(".score span");
+  console.log(scored);
+  scored.textContent = userScore;
+};
+
 nextBtn.addEventListener("click", function () {
   if (questionIndex < questionsArr.length - 1) {
     questionIndex++;
     showQuestion();
     questionCounter();
+    clearInterval(counter);
+    countDown(timeLeft);
+    countTimeLine(widthValue);
+    nextBtn.style.display = "none";
+  } else {
+    showResultBox();
   }
 });
 
-/*
-// Array containing the questions
-var questions = [
-  "What is the capital of Spain?",
-  "Who won the FIFA Women's World Cup in 2019?",
-  "What is the smallest country in the world?",
-  "Who invented the telephone?",
-  "What is the tallest mountain in the world?"
-];
-
-// Function to select a random question from the array
-function getRandomQuestion() {
-  var randomIndex = Math.floor(Math.random() * questions.length);
-  return questions[randomIndex];
-}
-
-// Function to display the quiz
-function displayQuiz(maxQuestions) {
-  var quiz = document.getElementById("quiz");
-  var numQuestionsDisplayed = 0;
-
-  // Loop until max number of questions are displayed
-  while (numQuestionsDisplayed < maxQuestions) {
-    var question = getRandomQuestion();
-
-    // Add the question to the quiz
-    var questionDiv = document.createElement("div");
-    questionDiv.innerHTML = question;
-    quiz.appendChild(questionDiv);
-
-    // Increment the number of questions displayed
-    numQuestionsDisplayed++;
-  }
-}
-
-// Call the function to display the quiz (10 questions in this example)
-displayQuiz(10);
-
-
-
-
-
-
-// Array of questions (already provided)
-const questionsArr = [
-  // (Insert the 50 questions array here)
-];
-
-// Function to shuffle the questions array
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-// Shuffle the questions array
-shuffleArray(questionsArr);
-
-// Variables to keep track of the current question
-let currentQuestionIndex = 0;
-
-// Function to display a question on the UI using map
-function displayQuestion() {
-  const question = questionsArr[currentQuestionIndex];
-
-  document.getElementById('question-number').textContent = `Question ${question.number}`;
-  document.getElementById('question').textContent = question.question;
-  
-  const optionsDiv = document.getElementById('options');
-  optionsDiv.innerHTML = ''; // Clear previous options
-  
-  question.options.map(option => {
-    const optionButton = document.createElement('button');
-    optionButton.textContent = option;
-    optionButton.onclick = () => checkAnswer(option);
-    optionsDiv.appendChild(optionButton);
-  });
-}
-
-// Function to check the selected answer
-function checkAnswer(selectedOption) {
-  const question = questionsArr[currentQuestionIndex];
-  
-  if (selectedOption === question.correctAnswer) {
-    alert('Correct!');
-  } else {
-    alert(`Wrong! The correct answer is ${question.correctAnswer}`);
-  }
-
-  // Move to the next question
-  currentQuestionIndex++;
-  
-  // If there are more questions, display the next one
-  if (currentQuestionIndex < questionsArr.length) {
-    displayQuestion();
-  } else {
-    alert('Quiz completed!');
-  }
-}
-
-// Initialize the quiz by displaying the first question
-document.getElementById('next-btn').onclick = displayQuestion;
-displayQuestion(); // Display the first question immediately
-
-*/
+quitQuiz.addEventListener("click", function () {
+  window.location.reload();
+});

@@ -45,13 +45,20 @@
 
       <div class="info-list">
         <p class="info">
-          1) You have <span>20 seconds</span> for each question
+          1) You have <span>10 seconds</span> for each question.
         </p>
         <p class="info">2) You can only choose one answer.</p>
         <p class="info">3) You can't exit the quiz when you start.</p>
-        <p class="info">4) Once time is up you can't choose answer</p>
-        <p class="info">5) You get points for every correct answers.</p>
+        <p class="info">
+          4) You have to choose an answer in other to move to the next
+          questions.
+        </p>
+        <p class="info">
+          5) Once time is up you won't be able to choose an answer
+        </p>
+        <p class="info">6) You get a score for every correct answers.</p>
       </div>
+
       <div class="buttons">
         <button class="exit-quiz">Exit</button>
         <button class="continue-quiz">Continue</button>
@@ -64,8 +71,9 @@
         <h2 class="title">Javascript Quiz</h2>
         <div class="timer">
           <div class="timer_text">Timer:</div>
-          <div class="timer_sec">20</div>
+          <div class="timer_sec">10</div>
         </div>
+        <div class="time-line"></div>
       </header>
 
       <section>
@@ -110,11 +118,11 @@
     <div class="result_box">
       <ion-icon class="icon" name="trophy"></ion-icon>
       <h3 class="completed_quiz"><span>Quiz Completed.</span></h3>
-      <p class="score">You scored <span>1</span> out of 50 questions</p>
+      <p class="score">You scored <span>0</span> out of 50.</p>
 
       <div class="buttons">
         <button class="restart-quiz">Restart</button>
-        <button class="exit-quiz">Exit</button>
+        <button class="quit-quiz">Exit Quiz</button>
       </div>
     </div>
   </body>

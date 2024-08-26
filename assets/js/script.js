@@ -1,6 +1,13 @@
 "use strict";
 
-import { showQuestion, questionCounter } from "./questions.js";
+import {
+  showQuestion,
+  timeLeft,
+  widthValue,
+  countTimeLine,
+  countDown,
+  questionCounter,
+} from "./questions.js";
 
 const startBtn = document.querySelector(".start_quiz button");
 const infoBox = document.querySelector(".info-box");
@@ -21,4 +28,6 @@ continueBtn.addEventListener("click", function () {
   infoBox.classList.remove("active");
   showQuestion();
   questionCounter();
+  countDown(timeLeft);
+  countTimeLine(widthValue);
 });
